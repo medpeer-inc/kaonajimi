@@ -11,14 +11,18 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  host: localhost
+  variables:
+    time_zone: '+09:00'
+  port: 3306
 
 development:
   <<: *default
+  username: root
+  host: db
   database: kaonajimi_development
 
 # Warning: The database defined as "test" will be erased and
@@ -26,6 +30,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  username: root
+  host: <%= ENV['CIRCLECI'] == 'true' ? '127.0.0.1' : 'db' %>
   database: kaonajimi_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
