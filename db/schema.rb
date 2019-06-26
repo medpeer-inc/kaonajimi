@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2019_06_26_135535) do
 
   create_table "user_tag_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "tag_id", null: false
+    t.bigint "user_tag_id", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_user_tag_histories_on_tag_id"
     t.index ["user_id"], name: "index_user_tag_histories_on_user_id"
+    t.index ["user_tag_id"], name: "index_user_tag_histories_on_user_tag_id"
   end
 
   create_table "user_taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
