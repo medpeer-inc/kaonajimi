@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <%= @user.email %>
+<% @user.images.each do |image| %>
+  <%= image_tag image %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
