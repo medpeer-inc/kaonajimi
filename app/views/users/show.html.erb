@@ -5,4 +5,6 @@
   <%= image_tag image %>
 <% end %>
 
+<%= @user.profile_text&.html_safe %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
