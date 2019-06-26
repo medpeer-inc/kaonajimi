@@ -1,3 +1,3 @@
 class Master::Group < ApplicationRecord
-  has_many :divisions, class_name: 'Master::Division', foreign_key: 'master_group_id', dependent: :destroy
+  belongs_to :division, class_name: 'Master::Division', foreign_key: :master_division_id, inverse_of: :groups
 end
