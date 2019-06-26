@@ -1,0 +1,2 @@
+class UserTagHistory < ApplicationRecord
+end
