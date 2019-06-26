@@ -1,0 +1,2 @@
+class UserTagging < ApplicationRecord
+end

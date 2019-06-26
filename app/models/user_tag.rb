@@ -1,0 +1,2 @@
+class UserTag < ApplicationRecord
+end
