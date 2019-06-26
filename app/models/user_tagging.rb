@@ -1,4 +1,4 @@
 class UserTagging < ApplicationRecord
   belongs_to :user
-  belongs_to :tag, class_name: 'UserTag'
+  belongs_to :user_tag
 end
