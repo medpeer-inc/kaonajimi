@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def new
-    @user = User.new
-  end
-
   def edit
   end
 
@@ -26,6 +22,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.fetch(:user, {})
+    params.require(:user).permit(images: [])
   end
+
 end
