@@ -19,6 +19,7 @@ class UserTagsController < ApplicationController
     ActiveRecord::Base.transaction do
       @user_tag = UserTag.find_or_create_by!(user_tag_params)
       UserTagging.create!(user_tag: @user_tag, user_id: params[:user_id])
+      UserTagHistory.create!(user_tag: @user_tag, user_id: params[:user_id], status: :add)
     end
     render :json => { id: @user_tag.id }
   end
