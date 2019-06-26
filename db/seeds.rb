@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create(
+  master_group: Master::Group.take,
+  profile_text: '<p>テスト<p>',
+  email: 'hoge@example.com'
+)
+UserTag.create(title: 'sample', description: 'tag description')
+UserTagging.create(tag_id: UserTag.take, user: User.take)
+UserTagHistory.create(tag: UserTag.take, user: User.take, status: :add)
+UserTagHistory.create(tag: UserTag.take, user: User.take, status: :remove)
