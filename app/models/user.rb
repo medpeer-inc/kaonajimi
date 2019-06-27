@@ -20,6 +20,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 255 }
   validates :nearest_station, length: { maximum: 255 }
 
+  scope :recent, -> { order(updated_at: :desc) }
+  scope :this_month, -> {
+    now = Time.current
+    where(created_at: now.beginning_of_month..now)
+  }
+
   def fullname
     "#{last_name} #{first_name}"
   end

@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <span class="icon has-text-success">
+      <i class="fas fa-user-tag"></i>
+    </span>
+  </td>
+  <td><small><%= l(history.created_at, format: :long) %></small></td>
+  <td>
+    <strong><%= history.user.fullname %></strong>に
+    <a class="tag is-link"><%= history.user_tag.title %></a>
+    タグが付けられました。
+  </td>
+</tr>
