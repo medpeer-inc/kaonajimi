@@ -10,6 +10,9 @@ Master::Division.create(name: 'MIS事業部')
 Master::Group.create(name: '調剤支援PF_G', division: Master::Division.take)
 User.create(
   master_group: Master::Group.take,
+  first_name: 'でも子',
+  last_name: '顔馴染',
+  nearest_station: 'JR荻窪駅',
   profile_text: '<h1>はじめまして！<h1><p>趣味はサウナです！<p>',
   email: 'sample@example.com',
   password: 'Password',
