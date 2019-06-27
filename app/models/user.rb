@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :bigint           not null, primary key
+#  master_group_id  :bigint           not null
+#  profile_text     :text(65535)
+#  first_name       :string(255)      not null
+#  last_name        :string(255)      not null
+#  nearest_station  :string(255)
+#  email            :string(255)      not null
+#  crypted_password :string(255)
+#  salt             :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 class User < ApplicationRecord
   belongs_to :master_group, class_name: 'Master::Group', foreign_key: :master_group_id, inverse_of: :users
   has_many :user_jobs, dependent: :destroy
