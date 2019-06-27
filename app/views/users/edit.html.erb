@@ -4,17 +4,15 @@
       <div class="column is-three-fifths">
         <h1 class="title is-3">プロフィール編集</h1>
         <hr>
-        <% main_images_attr = [{ id: @user.main_image.id, url: @user.main_image_url }] %>
         <image-upload-form
-          :init_images="<%= main_images_attr.to_json %>"
+          :init_images="<%= @main_images_attr.to_json %>"
           user_id="<%= @user.id %>"
           limit=1
           type="main"
         >
         </image-upload-form>
-        <% sub_images_attr = @user.sub_images.map { |image| { id: image.id, url: rails_blob_path(image, only_path: true) } } %>
         <image-upload-form
-          :init_images="<%= sub_images_attr.to_json %>"
+          :init_images="<%= @sub_images_attr.to_json %>"
           user_id="<%= @user.id %>"
           limit=2
           type="sub"

@@ -8,9 +8,8 @@ class UserImagesController < ApplicationController
       @user.sub_images.attach(params[:images])
       @images = @user.sub_images
     end
-    render :json => @images.map do |image|
-      { id: image.id, url: rails_blob_path(image, only_path: true) }
-    end
+    ret = @images.map { |image| { id: image.id, url: rails_blob_path(image, only_path: true) } }
+    render :json => ret
   end
 
   def destroy

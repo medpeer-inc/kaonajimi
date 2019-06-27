@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @main_images_attr = @user.main_image.attached? ? [{ id: @user.main_image.id, url: @user.main_image_url }] : []
+    @sub_images_attr = @user.sub_images.map do |image|
+      { id: image.id, url: rails_blob_path(image, only_path: true) }
+    end
   end
 
   def update
