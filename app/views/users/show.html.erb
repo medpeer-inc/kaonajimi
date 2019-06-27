@@ -63,6 +63,11 @@
                   <td><%= @user.nearest_station %></td>
                 </tr>
               </table>
+              <% if current_page?(current_user) %>
+                <%= link_to edit_user_path(current_user), class: 'button is-primary is-outlined is-fullwidth' do %>
+                  <span class="icon"><i class="fas fa-edit"></i></span> <span>編集</span>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>

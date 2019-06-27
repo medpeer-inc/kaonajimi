@@ -13,94 +13,93 @@
     </div>
   <% end %>
 
-  <%= label_tag '姓' %><br />
-  <div class="field">
-    <%= form.text_field :last_name, required: true, class: 'input', placeholder: '顔馴染' %>
-  </div>
-
-  <%= label_tag '名' %><br />
-  <div class="field">
-    <%= form.text_field :first_name, required: true, class: 'input', placeholder: 'でも子' %>
-  </div>
-
-  <%= label_tag '最寄駅(任意)' %><br />
-  <div class="field">
-    <%= form.text_field :nearest_station, class: 'input', placeholder: 'JR荻窪駅' %>
-  </div>
-
-  <div class="field">
-    <%= label_tag 'メールアドレス' %><br />
-    <%= form.text_field :email, class: 'input', type: 'email', placeholder: 'sample@example.com' %>
-  </div>
-
-  <div class="field">
-    <%= label_tag 'パスワード' %><br />
-    <%= form.password_field :password, class: 'input', type: 'password', placeholder: 'Password0' %>
-  </div>
-
-  <%= label_tag 'パスワード確認' %><br />
-  <div class="field">
-    <%= form.password_field :password_confirmation, class: 'input', type: 'password', placeholder: 'Password0' %>
-  </div>
-
-  <div class="field">
-  <%= label_tag 'メイン画像' %><br />
-    <div class="file is-boxed">
-      <label class="file-label">
-        <%= form.file_field :main_image, class: 'file-input' %>
-        <span class="file-cta">
-          <span class="file-icon">
-            <i class="fas fa-upload"></i>
-          </span>
-          <span class="file-label">
-            ファイルを選択してください
-          </span>
-        </span>
-      </label>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">姓</label>
     </div>
-  </div>
-
-  <div class="field">
-  <%= label_tag 'サブ画像' %><br />
-    <div class="file is-boxed">
-      <label class="file-label">
-        <%= form.file_field :sub_images, multiple: true, class: 'file-input' %>
-        <span class="file-cta">
-          <span class="file-icon">
-            <i class="fas fa-upload"></i>
-          </span>
-          <span class="file-label">
-            ファイルを選択してください
-          </span>
-        </span>
-      </label>
-    </div>
-  </div>
-
-  <div class="columns">
-    <div class="column">
-      <div class="notification">
-        自由記入欄に以下のようなHTMLを記入するといい感じになります。<br /><br />
-
-        <%= <<-'FYI'
-          <h4 class="title is-5">名前</h4>
-          <p>私の名前は川島達史です。ちょっと珍しい名前だと言われます。タツシが噛みやすいので、自分の名前なのにたまに噛んだりしてしまいます。（軽いアイスブレイクを入れる）</p>
-          <h4 class="title is-5">趣味</h4>
-          <p>趣味は最近海外のサッカーにはまっていまして、 香川選手が大好きです。深夜でも必ず試合を見ています。 見すぎているので香川選手とフィールドでプレーをしている夢をみました。</p>
-          <h4 class="title is-5">経歴</h4>
-          <p>前職では医療系の機関で、メンタルヘルスやストレスの改善に関わる仕事をしていました。</p>
-          <h4 class="title is-5">意気込み</h4>
-          <p>今までの知識も活かしつつ、新しいことをどんどん吸収していこうと考えています。本日からよろしくお願いします。</p>
-        FYI
-        %>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.text_field :last_name, required: true, class: 'input' %>
+        </div>
       </div>
     </div>
   </div>
 
-  <%= label_tag '自由記入欄' %><br />
-  <div class="field">
-    <%= form.text_area :profile_text, class: 'textarea is-hovered' %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">名</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.text_field :first_name, required: true, class: 'input' %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <%= form.submit '保存', class: 'button is-warning' %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">最寄駅(任意)</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.text_field :nearest_station, class: 'input' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">パスワード</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.password_field :password, class: 'input', type: 'password' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">パスワード確認</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.password_field :password_confirmation, class: 'input', type: 'password' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">自由記入欄</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.text_area :profile_text, class: 'textarea is-hovered' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.submit '保存', class: 'button is-primary' %>
+          <%= link_to 'Cancel', @user, class: 'button is-light' %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
