@@ -5,23 +5,29 @@
         <div class="card">
           <div class="card-image">
             <figure class="image is-4by3">
-              <%= image_tag @user_images&.shift || "https://source.unsplash.com/random/1280x960"%>
+              <% if @user.main_image.attached? %>
+                <%= image_tag @user.main_image%>
+              <% else %>
+                <%= image_tag "https://source.unsplash.com/random/1280x960"%>
+              <% end %>
             </figure>
           </div>
         </div>
         <br>
         <div class="columns">
-          <div class="column">
-            <% @user_images.each do |image| %>
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <%= image_tag image || "https://source.unsplash.com/random/1280x960" %>
-                  </figure>
+          <% if @sub_images.present? %>
+            <% @sub_images.each do |sub_image| %>
+              <div class="column">
+                <div class="card">
+                  <div class="card-image">
+                    <figure class="image is-4by3">
+                      <%= image_tag sub_image || "https://source.unsplash.com/random/1280x960" %>
+                    </figure>
+                  </div>
                 </div>
               </div>
             <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
       <div class="column is-half">

@@ -44,10 +44,27 @@
   </div>
 
   <div class="field">
-  <%= label_tag 'プロフィール画像' %><br />
+  <%= label_tag 'メイン画像' %><br />
     <div class="file is-boxed">
       <label class="file-label">
-        <%= form.file_field :images, multiple: true, class: 'file-input' %>
+        <%= form.file_field :main_image, class: 'file-input' %>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            ファイルを選択してください
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="field">
+  <%= label_tag 'サブ画像' %><br />
+    <div class="file is-boxed">
+      <label class="file-label">
+        <%= form.file_field :sub_images, multiple: true, class: 'file-input' %>
         <span class="file-cta">
           <span class="file-icon">
             <i class="fas fa-upload"></i>
