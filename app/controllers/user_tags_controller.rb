@@ -4,7 +4,7 @@ class UserTagsController < ApplicationController
   end
 
   def show
-    @user_tag = UserTag.find(params[:id])
+    @user_tag = UserTag.includes(:user_taggings, :users).find(params[:id])
   end
 
   def edit
