@@ -10,6 +10,8 @@
       </ul>
     </div>
   <% end %>
+  <%= form.file_field :images, multiple: true %>
+  <%= form.text_field :profile_text %>
 
   <div class="actions">
     <%= form.submit %>
