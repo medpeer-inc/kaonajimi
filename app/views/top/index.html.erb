@@ -1,7 +1,9 @@
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-5">最近更新されたユーザー</h2>
+      <h2 class="title is-5">
+        <i class="fas fa-user-clock"></i> 最近更新されたユーザー
+      </h2>
       <div class="columns is-multiline">
         <% @recent_users.each do |user| %>
           <div class="column is-2">
@@ -18,12 +20,14 @@
     <div class="columns">
       <div class="column">
         <div class="box">
-          <h2 class="title is-5">人気のタグ</h2>
+          <h2 class="title is-5">
+            <i class="fas fa-tags"></i></span> 人気のタグ
+          </h2>
           <div class="field is-grouped is-grouped-multiline">
             <% @popular_tags.each do |popular_tag| %>
               <div class="control">
                 <div class="tags has-addons">
-                  <a class="tag is-link"><%= popular_tag.title %></a>
+                  <%= link_to popular_tag.title, popular_tag, class: "tag is-link" %>
                   <span class="tag"><%= popular_tag.user_count%></span>
                 </div>
               </div>
@@ -33,7 +37,9 @@
       </div>
       <div class="column">
         <div class="box">
-          <h2 class="title is-5">最近更新のあったタグ</h2>
+          <h2 class="title is-5">
+            <i class="fas fa-tags"></i></span> 最近更新のあったタグ
+          </h2>
           <table class="table">
             <tbody>
               <%= render partial: 'tag_history_collection', collection: @tags_histories, as: :history %>
@@ -48,7 +54,9 @@
 <section class="section">
   <div class="container">
     <div class="box">
-      <h2 class="title is-5">今月入社したユーザー</h2>
+      <h2 class="title is-5">
+        <i class="fas fa-user-plus"></i> 今月入社したユーザー
+      </h2>
       <div class="columns is-multiline">
         <% @this_month_users.each do |user| %>
           <div class="column is-2">
