@@ -1,17 +1,41 @@
 <%= form_with(model: user_tag, local: true) do |form| %>
   <% if user_tag.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user_tag.errors.count, "error") %> prohibited this user_tag from being saved:</h2>
-
-      <ul>
-      <% user_tag.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="columns">
+      <div class="column">
+        <div class="notification is-danger">
+          <ul>
+          <% user_tag.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   <% end %>
-    <p><%= form.text_field :title %></p>
-    <p><%= form.text_area :description %></p>
-    <%= form.submit %>
+
+  <div class="field">
+    <label class="label">タグ名</label>
+    <div class="control">
+      <%= form.text_field :title, required: true, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">タグ説明</label>
+    <div class="control">
+      <%= form.text_area :description, required: true, class: 'textarea' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="field-label"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.submit '保存', class: 'button is-primary' %>
+          <%= link_to 'Cancel', user_tag, class: 'button is-light' %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
