@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_to root_path, notice: 'ログインしました'
     else
-      flash.now[:alert] = 'emailかパスワードdに誤りがあります'
+      flash.now[:alert] = 'emailかパスワードに誤りがあります'
       render action: 'new'
     end
   end
