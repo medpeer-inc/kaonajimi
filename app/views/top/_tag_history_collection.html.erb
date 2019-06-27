@@ -7,7 +7,7 @@
   <td><small><%= l(history.created_at, format: :long) %></small></td>
   <td>
     <strong><%= history.user.fullname %></strong>に
-    <a class="tag is-link"><%= history.user_tag.title %></a>
+    <%= link_to history.user_tag.title, history.user_tag, class: "tag is-link" %>
     タグが付けられました。
   </td>
 </tr>

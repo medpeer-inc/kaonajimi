@@ -6,7 +6,7 @@
     >
       <div class="control">
         <div class="tags has-addons">
-          <a class="tag is-link">{{ tag.title }}</a>
+          <a class="tag is-link" @click="redirectTag(index)">{{ tag.title }}</a>
           <a class="tag is-delete" @click="deleteTag(index)"></a>
         </div>
       </div>
@@ -38,15 +38,22 @@ export default {
       event.preventDefault();
       await axios.post('/user_tags', {
         user_tag: { title: this.tagTitle },
-        user_id: this.user_id }
-      ).then(res => {
-        this.tags.push({tagging_id: res.data.tagging_id, title: this.tagTitle});
+        user_id: this.user_id
+      }).then(res => {
+        this.tags.push({
+          id: res.data.id,
+          tagging_id: res.data.tagging_id,
+          title: this.tagTitle
+        })
         this.tagTitle = ''
       })
     },
     deleteTag: async function(index) {
       await axios.delete(`/user_taggings/${this.tags[index].tagging_id}`)
       this.tags.splice(index,1)
+    },
+    redirectTag: function (index) {
+      location.href = `/user_tags/${this.tags[index].id}`
     }
   }
 };
