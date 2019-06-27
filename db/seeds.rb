@@ -10,9 +10,6 @@ JOB_NAME.each do |name|
   Master::Job.create(name: name)
 end
 
-DIVISION_NAME = %w(MS事業部　MIS事業部 社長室)
-GROUP_NAME = %w(BD部 MP部 調剤支援PF 開業支援 人事 新規事業推進)
-
 DIVISION_AND_GROUP_NAME = Hash.new.tap do |h|
   h["MS事業部"] = %w(BD部 MP部)
   h["MIS事業部"] = %w(調剤支援 開業支援 キャリア)
