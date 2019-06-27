@@ -36,15 +36,18 @@ export default {
   methods: {
     buildTag: async function(event) {
       event.preventDefault();
+      if(!this.tagTitle) { return }
       await axios.post('/user_tags', {
         user_tag: { title: this.tagTitle },
         user_id: this.user_id
       }).then(res => {
-        this.tags.push({
-          id: res.data.id,
-          tagging_id: res.data.tagging_id,
-          title: this.tagTitle
-        })
+        if(res.data.created) {
+          this.tags.push({
+            id: res.data.id,
+            tagging_id: res.data.tagging_id,
+            title: this.tagTitle
+          })
+        }
         this.tagTitle = ''
       })
     },
