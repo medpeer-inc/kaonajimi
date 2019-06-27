@@ -1,9 +1,16 @@
-<section class="hero is-light is-medium">
+<section class="hero is-info">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title"><%= @user_tag.title %></h1>
-      <h2 class="subtitle"><%= @user_tag.description %></h2>
-      <p><small><%= link_to '編集する', edit_user_tag_path(@user_tag) %></small></p>
+      <div class="columns is-mobile is-centered">
+        <div class="column is-half">
+          <h1 class="title"><%= @user_tag.title %></h1>
+          <hr>
+          <h2 class="subtitle"><%= @user_tag.description %></h2>
+          <%= link_to edit_user_tag_path(@user_tag), class: 'button is-outlined is-fullwidth' do %>
+            <span class="icon"><i class="fas fa-edit"></i></span> <span>編集</span>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </section>

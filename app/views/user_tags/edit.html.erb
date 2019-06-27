@@ -1,6 +1,11 @@
-<h1>Editing User Tag</h1>
-
-<%= render 'form', user_tag: @user_tag %>
-
-<%= link_to 'Show', @user_tag %> |
-<%= link_to 'Back', user_tags_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      <div class="column is-three-fifths">
+        <h1 class="title is-3">タグ編集</h1>
+        <hr>
+        <%= render 'form', user_tag: @user_tag %>
+      </div>
+    </div>
+  </div>
+</section>
