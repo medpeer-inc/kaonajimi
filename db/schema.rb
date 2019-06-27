@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_135535) do
+ActiveRecord::Schema.define(version: 2019_06_27_035232) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2019_06_26_135535) do
 
   create_table "user_tag_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "tag_id", null: false
+    t.bigint "user_tag_id", null: false
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_user_tag_histories_on_tag_id"
     t.index ["user_id"], name: "index_user_tag_histories_on_user_id"
+    t.index ["user_tag_id"], name: "index_user_tag_histories_on_user_tag_id"
   end
 
   create_table "user_taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -91,13 +91,16 @@ ActiveRecord::Schema.define(version: 2019_06_26_135535) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "master_group_id", null: false
     t.text "profile_text"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "nearest_station"
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["master_group_id"], name: "index_users_on_master_group_id", unique: true
+    t.index ["master_group_id"], name: "index_users_on_master_group_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -1,0 +1,12 @@
+<%= form_with(url: user_sessions_path, local: true) do |form| %>
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= form.text_field :email, required: true, class: 'input', type: 'email', placeholder: 'Email' %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %><br />
+    <%= form.password_field :password, required: true, class: 'input', type: 'password', placeholder: 'password' %>
+  </div>
+
+  <%= form.submit 'login', class: 'button is-link' %>
+<% end %>
