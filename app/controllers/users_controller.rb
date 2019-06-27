@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_images = @user.sub_images.to_a
+    @sub_images = @user.sub_images.to_a
     @tags = @user.user_taggings.includes(:user_tag).map do |tagging|
       # NOTE: 削除するときはtaggingを削除するため、taggingのidを取得
       { id: tagging.user_tag_id, tagging_id: tagging.id, title: tagging.user_tag.title }

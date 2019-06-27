@@ -56,4 +56,8 @@ class User < ApplicationRecord
   def fullname
     "#{last_name} #{first_name}"
   end
+
+  def main_image_url
+    main_image.attached? ? Rails.application.routes.url_helpers.rails_blob_path(main_image, only_path: true) : []
+  end
 end

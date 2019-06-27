@@ -4,7 +4,7 @@
       <div class="column is-three-fifths">
         <h1 class="title is-3">プロフィール編集</h1>
         <hr>
-        <% main_images_attr = [{ url: rails_blob_path(@user.main_image, only_path: true) }] %>
+        <% main_images_attr = [{ url: @user.main_image_url }] %>
         <image-upload-form
           :init_images="<%= main_images_attr.to_json %>"
           user_id="<%= @user.id %>"
