@@ -7,10 +7,6 @@ class UserTagsController < ApplicationController
     @user_tag = UserTag.find(params[:id])
   end
 
-  def new
-    @user_tag = UserTag.new
-  end
-
   def edit
     @user_tag = UserTag.find(params[:id])
   end
