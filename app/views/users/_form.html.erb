@@ -1,44 +1,46 @@
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="columns">
+      <div class="column">
+        <div class="notification is-danger">
+          <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
   <% end %>
 
   <%= label_tag '姓' %><br />
   <div class="field">
-    <%= form.text_field :last_name, required: true, class: 'input' %>
+    <%= form.text_field :last_name, required: true, class: 'input', placeholder: '顔馴染' %>
   </div>
 
   <%= label_tag '名' %><br />
   <div class="field">
-    <%= form.text_field :first_name, required: true, class: 'input' %>
+    <%= form.text_field :first_name, required: true, class: 'input', placeholder: 'でも子' %>
   </div>
 
   <%= label_tag '最寄駅(任意)' %><br />
   <div class="field">
-    <%= form.text_field :nearest_station, class: 'input' %>
+    <%= form.text_field :nearest_station, class: 'input', placeholder: 'JR荻窪駅' %>
   </div>
 
   <div class="field">
-    <%= label_tag :email %><br />
-    <%= form.text_field :email, class: 'input', type: 'email', placeholder: 'Email' %>
+    <%= label_tag 'メールアドレス' %><br />
+    <%= form.text_field :email, class: 'input', type: 'email', placeholder: 'sample@example.com' %>
   </div>
 
   <div class="field">
     <%= label_tag 'パスワード' %><br />
-    <%= form.password_field :password, class: 'input', type: 'password', placeholder: 'password' %>
+    <%= form.password_field :password, class: 'input', type: 'password', placeholder: 'Password0' %>
   </div>
 
   <%= label_tag 'パスワード確認' %><br />
   <div class="field">
-    <%= form.password_field :password_confirmation, class: 'input', type: 'password', placeholder: 'password' %>
+    <%= form.password_field :password_confirmation, class: 'input', type: 'password', placeholder: 'Password0' %>
   </div>
 
   <div class="field">
@@ -55,6 +57,26 @@
           </span>
         </span>
       </label>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="notification">
+        自由記入欄に以下のようなHTMLを記入するといい感じになります。<br /><br />
+
+        <%= <<-'FYI'
+          <h4 class="title is-5">名前</h4>
+          <p>私の名前は川島達史です。ちょっと珍しい名前だと言われます。タツシが噛みやすいので、自分の名前なのにたまに噛んだりしてしまいます。（軽いアイスブレイクを入れる）</p>
+          <h4 class="title is-5">趣味</h4>
+          <p>趣味は最近海外のサッカーにはまっていまして、 香川選手が大好きです。深夜でも必ず試合を見ています。 見すぎているので香川選手とフィールドでプレーをしている夢をみました。</p>
+          <h4 class="title is-5">経歴</h4>
+          <p>前職では医療系の機関で、メンタルヘルスやストレスの改善に関わる仕事をしていました。</p>
+          <h4 class="title is-5">意気込み</h4>
+          <p>今までの知識も活かしつつ、新しいことをどんどん吸収していこうと考えています。本日からよろしくお願いします。</p>
+        FYI
+        %>
+      </div>
     </div>
   </div>
 
