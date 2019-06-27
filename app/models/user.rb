@@ -9,11 +9,16 @@ class User < ApplicationRecord
 
   authenticates_with_sorcery!
 
+  EMAIL_FORMAT = /\A[a-zA-Z0-9\-\._+]+@([a-zA-Z0-9\-]+\.)+[a-zA-Z]{2,5}\z/
+
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, format: { with: EMAIL_FORMAT, message: 'メールアドレスの形式が不正です' }
+  validates :profile_text, length: { maximum: 65_535 }
+  validates :first_name, presence: true, length: { maximum: 255 }
+  validates :last_name, presence: true, length: { maximum: 255 }
+  validates :nearest_station, length: { maximum: 255 }
 
   def fullname
     "#{last_name} #{first_name}"
