@@ -4,21 +4,35 @@
       <div class="column is-three-fifths">
         <h1 class="title is-3">プロフィール編集</h1>
         <hr>
-        <image-upload-form
-          :init_images="<%= @main_images_attr.to_json %>"
-          user_id="<%= @user.id %>"
-          limit=1
-          type="main"
-        >
-        </image-upload-form>
-        <image-upload-form
-          :init_images="<%= @sub_images_attr.to_json %>"
-          user_id="<%= @user.id %>"
-          limit=2
-          type="sub"
-        >
-        </image-upload-form>
         <%= render 'form', user: @user %>
+      </div>
+      <div class="column">
+        <h1 class="title is-3">アイコン編集</h1>
+        <hr>
+        <div class="box">
+          <h2 class="title is-5">メイン画像</h2>
+          <h3 class="subtitle is-size-7 has-text-danger">アイコンに使用される画像になりますので、極力顔の分かる写真でお願いします。</h3>
+          <hr>
+          <image-upload-form
+            :init_images="<%= @main_images_attr.to_json %>"
+            user_id="<%= @user.id %>"
+            limit=1
+            type="main"
+          >
+          </image-upload-form>
+        </div>
+        <div class="box">
+          <h2 class="title is-5">サブ画像</h2>
+          <h3 class="subtitle is-size-7">こちらはサブで使われる画像ですので、顔が分からなくても構いません。<br>2枚までアップロードする事が出来ます。</h3>
+          <hr>
+          <image-upload-form
+            :init_images="<%= @sub_images_attr.to_json %>"
+            user_id="<%= @user.id %>"
+            limit=2
+            type="sub"
+          >
+          </image-upload-form>
+        </div>
       </div>
     </div>
   </div>
