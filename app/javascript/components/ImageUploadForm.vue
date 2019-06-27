@@ -2,11 +2,14 @@
   <div class="image-upload-form">
     <div class="image-list">
       <div v-for="(image,index) in images" :key="index">
-        <img :src="image.url">
-        <span class="delete" @click="handleFileDelete(index)" v-if="!isMain()" />
+        <div class="notification">
+          <img :src="image.url">
+          <span class="delete" @click="handleFileDelete(index)" v-if="!isMain()" />
+        </div>
+        <br>
       </div>
     </div>
-    <div class="file has-name" :class="{ 'is-primary': isMain() }" >
+    <div class="file" :class="{ 'is-primary': isMain() }" >
       <label class="file-label">
         <input class="file-input" type="file" name="resume" @change="handleFileSelect">
         <span class="file-cta">
