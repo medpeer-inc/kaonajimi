@@ -8,16 +8,20 @@
 Master::Job.create(name: 'エンジニア')
 Master::Division.create(name: 'MIS事業部')
 Master::Group.create(name: '調剤支援PF_G', division: Master::Division.take)
-User.create(
-  master_group: Master::Group.take,
-  first_name: 'でも子',
-  last_name: '顔馴染',
-  nearest_station: 'JR荻窪駅',
-  profile_text: '<h1>はじめまして！<h1><p>趣味はサウナです！<p>',
-  email: 'sample@example.com',
-  password: 'Password',
-  password_confirmation: 'Password'
-)
+
+10.times do |i|
+  User.create(
+    master_group: Master::Group.take,
+    first_name: "でも子#{i}号",
+    last_name: '顔馴染',
+    nearest_station: "JR荻窪駅#{i}番線",
+    profile_text: "<h1>はじめまして！<h1><p>趣味はサウナに#{i}時間いることです！<p>",
+    email: "sample#{i}@example.com",
+    password: "Password#{i}",
+    password_confirmation: "Password#{i}"
+  )
+end
+
 UserJob.create(user: User.take, master_job: Master::Job.take)
 UserTag.create(title: 'sample', description: 'tag description')
 UserTagging.create(user_tag: UserTag.take, user: User.take)
