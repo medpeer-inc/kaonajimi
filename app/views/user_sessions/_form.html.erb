@@ -1,12 +1,24 @@
 <%= form_with(url: user_sessions_path, local: true) do |form| %>
   <div class="field">
-    <%= label_tag :email %><br />
-    <%= form.text_field :email, required: true, class: 'input', type: 'email', placeholder: 'Email' %>
+    <p class="control has-icons-left has-icons-right">
+      <%= form.text_field :email, required: true, class: 'input', type: 'email', placeholder: 'Email' %>
+      <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+    </p>
   </div>
   <div class="field">
-    <%= label_tag :password %><br />
-    <%= form.password_field :password, required: true, class: 'input', type: 'password', placeholder: 'password' %>
+    <p class="control has-icons-left">
+      <%= form.password_field :password, required: true, class: 'input', type: 'password', placeholder: 'password' %>
+      <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+    </p>
   </div>
-
-  <%= form.submit 'login', class: 'button is-link' %>
+  <div class="field">
+    <div class="field-label"></div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <%= form.submit 'login', class: 'button is-link  is-fullwidth' %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
