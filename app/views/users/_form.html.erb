@@ -10,10 +10,58 @@
       </ul>
     </div>
   <% end %>
-  <%= form.file_field :images, multiple: true %>
-  <%= form.text_field :profile_text %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <%= label_tag '姓' %><br />
+  <div class="field">
+    <%= form.text_field :last_name, required: true, class: 'input' %>
   </div>
+
+  <%= label_tag '名' %><br />
+  <div class="field">
+    <%= form.text_field :first_name, required: true, class: 'input' %>
+  </div>
+
+  <%= label_tag '最寄駅(任意)' %><br />
+  <div class="field">
+    <%= form.text_field :nearest_station, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :email %><br />
+    <%= form.text_field :email, class: 'input', type: 'email', placeholder: 'Email' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'パスワード' %><br />
+    <%= form.password_field :password, class: 'input', type: 'password', placeholder: 'password' %>
+  </div>
+
+  <%= label_tag 'パスワード確認' %><br />
+  <div class="field">
+    <%= form.password_field :password_confirmation, class: 'input', type: 'password', placeholder: 'password' %>
+  </div>
+
+  <div class="field">
+  <%= label_tag 'プロフィール画像' %><br />
+    <div class="file is-boxed">
+      <label class="file-label">
+        <%= form.file_field :images, multiple: true, class: 'file-input' %>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            ファイルを選択してください
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <%= label_tag '自由記入欄' %><br />
+  <div class="field">
+    <%= form.text_area :profile_text, class: 'textarea is-hovered' %>
+  </div>
+
+  <%= form.submit '保存', class: 'button is-warning' %>
 <% end %>
