@@ -43,12 +43,12 @@ export default {
         user_tag: { title: this.tagTitle },
         user_id: this.user_id }
       ).then(res => {
-        this.tags.push({id: res.data.id, title: this.tagTitle});
+        this.tags.push({tagging_id: res.data.tagging_id, title: this.tagTitle});
         this.tagTitle = ''
       })
     },
     deleteTag: async function(index) {
-      await axios.delete(`/user_tags/${this.tags[index].id}`, { user_id: this.user_id })
+      await axios.delete(`/user_taggings/${this.tags[index].tagging_id}`)
       this.tags.splice(index,1)
     }
   }
