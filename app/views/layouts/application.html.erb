@@ -21,6 +21,11 @@
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-end">
             <div class="navbar-item">
+              <%= form_with(url: users_path, method: :get) do |form| %>
+                <%= form.text_field :word, placeholder: "名前/最寄駅/部署/職種で検索できます", class: 'is-medium' %>
+                <%= form.submit 'Search', class: 'button is-success' %>
+              <% end %>
+
               <div class="buttons">
                 <%= link_to user_path(current_user), class: 'button is-primary' do %>
                   <span class="icon"><i class="fas fa-user"></i></span> <span>マイページ</span>
@@ -35,7 +40,7 @@
       <% end %>
     </nav>
     <% if flash[:notice].present? %>
-      <div class="notification ">
+      <div class="notification is-success">
         <%= flash[:notice] %>
       </div>
     <% end %>

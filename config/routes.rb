@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :user_tags, only: %i(index show create edit update destroy)
   resources :user_taggings
-  resources :users, only: %i(show edit update)
+  resources :users, only: %i(index show edit update)
   resources :user_sessions, only: %i(create)
 end

@@ -1,0 +1,25 @@
+<%= link_to user do %>
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <% if user.main_image.attached? %>
+          <%= image_tag(url_for user.main_image) %>
+        <% else %>
+          <%= image_tag("https://source.unsplash.com/random/1280x960") %>
+        <% end %>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-5">
+            <%= user.fullname %>
+          </p>
+          <p class="subtitle is-6">
+            <small><%= l(user.updated_at, format: :long) %></small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

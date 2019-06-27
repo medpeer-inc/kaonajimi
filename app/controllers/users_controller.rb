@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show edit update)
 
+  def index
+    word = params[:word]
+    @users = User.like_search(word)
+
+    unless @users.exists?
+      flash.now[:alert] = '条件に該当するユーザーが見つかりませんでした'
+      @users = User.all
+    end
+  end
+
   def show
     @user_images = @user.sub_images.to_a
     @tags = @user.user_taggings.includes(:user_tag).map do |tagging|
