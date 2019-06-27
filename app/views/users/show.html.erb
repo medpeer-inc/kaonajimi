@@ -1,10 +1,144 @@
-<p id="notice"><%= notice %></p>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+            </figure>
+          </div>
+        </div>
+        <br>
+        <div class="columns">
+          <div class="column">
+            <!-- Profile picture -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <!-- Profile picture -->
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://source.unsplash.com/random/1280x960" alt="Placeholder image">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="title is-4">Profile</h3>
+            <div class="content">
+              <table class="table-profile">
+                <tr>
+                  <th colspan="1"></th>
+                  <th colspan="2"></th>
+                </tr>
+                <tr>
+                  <td>所属部署:</td>
+                  <td>Guru's Lab</td>
+                </tr>
+                <tr>
+                  <td>職種:</td>
+                  <td>0123-456789</td>
+                </tr>
+                <tr>
+                  <td>最寄駅(任意):</td>
+                  <td>minion@despicable.me</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="card">
+          <div class="card-content">
+            <h3 class="title is-4">Tags</h3>
+            <div class="content">
+              <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">Technology</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
 
-<%= @user.email %>
-<% @user.images.each do |image| %>
-  <%= image_tag image %>
-<% end %>
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">CSS</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
 
-<%= @user.profile_text&.html_safe %>
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">Flexbox</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">Web Design</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">Open Source</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">Community</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
+
+                <div class="control">
+                  <div class="tags has-addons">
+                    <a class="tag is-link">Documentation</a>
+                    <a class="tag is-delete"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-mobile is-centered">
+        <div class="column is-four-fifths">
+          <h4 class="title is-5">名前</h4>
+          <p>私の名前は川島達史です。ちょっと珍しい名前だと言われます。タツシが噛みやすいので、自分の名前なのにたまに噛んだりしてしまいます。（軽いアイスブレイクを入れる）</p>
+          <h4 class="title is-5">住所</h4>
+          <p>横浜の大口というところです。出身は鳥取県で蛍が見れるような自然があります。</p>
+          <h4 class="title is-5">趣味</h4>
+          <p>趣味は最近海外のサッカーにはまっていまして、 香川選手が大好きです。深夜でも必ず試合を見ています。 見すぎているので香川選手とフィールドでプレーをしている夢をみました。</p>
+          <h4 class="title is-5">経歴</h4>
+          <p>前職では医療系の機関で、メンタルヘルスやストレスの改善に関わる仕事をしていました。</p>
+          <h4 class="title is-5">意気込み</h4>
+          <p>今までの知識も活かしつつ、新しいことをどんどん吸収していこうと考えています。本日からよろしくお願いします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
