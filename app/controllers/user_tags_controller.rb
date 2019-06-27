@@ -7,21 +7,17 @@ class UserTagsController < ApplicationController
     @user_tag = UserTag.find(params[:id])
   end
 
-  def new
-    @user_tag = UserTag.new
-  end
-
   def edit
     @user_tag = UserTag.find(params[:id])
   end
 
   def create
-    @user_tag = UserTag.new(user_tag_params)
-    if @user_tag.save
-      redirect_to @user_tag, notice: 'User tag was successfully created.'
-    else
-      render :new
+    ActiveRecord::Base.transaction do
+      user_tag = UserTag.find_or_create_by!(user_tag_params)
+      @taggging = UserTagging.create!(user_tag: user_tag, user_id: params[:user_id])
+      UserTagHistory.create!(user_tag: user_tag, user_id: params[:user_id], status: :add)
     end
+    render :json => { tagging_id: @taggging.id }
   end
 
   def update
@@ -35,8 +31,7 @@ class UserTagsController < ApplicationController
 
   def destroy
     @user_tag = UserTag.find(params[:id])
-    @user_tag.destroy
-    redirect_to user_tags_url, notice: 'User tag was successfully destroyed.'
+    @user_tag.destroy!
   end
 
   private

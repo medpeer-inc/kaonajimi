@@ -21,5 +21,5 @@ User.create(
 UserJob.create(user: User.take, master_job: Master::Job.take)
 UserTag.create(title: 'sample', description: 'tag description')
 UserTagging.create(user_tag: UserTag.take, user: User.take)
-UserTagHistory.create(tag: UserTag.take, user: User.take, status: :add)
-UserTagHistory.create(tag: UserTag.take, user: User.take, status: :remove)
+UserTagHistory.create(user_tag: UserTag.take, user: User.take, status: :add)
+UserTagHistory.create(user_tag: UserTag.take, user: User.take, status: :remove)

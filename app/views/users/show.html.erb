@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section" id="user">
   <div class="container">
     <div class="columns is-multiline is-centered">
       <div class="column is-one-third">
@@ -65,56 +65,8 @@
           <div class="card-content">
             <h3 class="title is-4">Tags</h3>
             <div class="content">
-              <div class="field is-grouped is-grouped-multiline">
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">Technology</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">CSS</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">Flexbox</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">Web Design</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">Open Source</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">Community</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-
-                <div class="control">
-                  <div class="tags has-addons">
-                    <a class="tag is-link">Documentation</a>
-                    <a class="tag is-delete"></a>
-                  </div>
-                </div>
-              </div>
+              <tag-input-form :init_tags="<%= @tags.to_json %>" user_id="<%= @user.id %>">
+              </tag-input-form>
             </div>
           </div>
         </div>
@@ -134,3 +86,4 @@
     </div>
   </div>
 </section>
+<%= javascript_pack_tag 'users/show' %>
