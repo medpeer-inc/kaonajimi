@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
   <head>
     <title>Kaonajimi</title>
     <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-white is-fixed-top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <%= image_tag '/logo.png' %>
@@ -22,11 +22,12 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <%= link_to "My Page", user_path(current_user), class: 'button is-light' %>
-                <% if current_page?(current_user) %>
-                  <%= link_to 'Edit', edit_user_path(current_user), class: 'button right' %>
+                <%= link_to user_path(current_user), class: 'button is-primary' do %>
+                  <span class="icon"><i class="fas fa-user"></i></span> <span>マイページ</span>
                 <% end %>
-                <%= link_to "Logout", :logout, method: :post, class: 'button is-light' %>
+                <%= link_to :logout, method: :post, class: 'button is-light' do %>
+                  <span class="icon"><i class="fas fa-sign-out-alt"></i></span> <span>ログアウト</span>
+                <% end %>
               </div>
             </div>
           </div>
