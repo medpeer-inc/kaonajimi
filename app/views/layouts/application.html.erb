@@ -22,58 +22,60 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item">
-            Home
-          </a>
-          <a class="navbar-item">
-            Documentation
-          </a>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              More
+      <% if current_user %>
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Home
             </a>
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                About
+            <%= link_to "My Page", user_path(current_user), class: 'navbar-item' %>
+            <a class="navbar-item">
+              Documentation
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+                More
               </a>
-              <a class="navbar-item">
-                Jobs
-              </a>
-              <a class="navbar-item">
-                Contact
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                Report an issue
-              </a>
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <% if current_page?(current_user) %>
+                  <%= link_to 'edit', edit_user_path(current_user), class: 'button right' %>
+                <% end %>
+                <%= link_to "Logout", :logout, method: :post, class: 'button is-light' %>
+              </div>
             </div>
           </div>
         </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <% if current_user %>
-                <a class="button is-light">
-                  <%= link_to "マイページ", user_path(current_user) %>
-                </a>
-                <a class="button is-light">
-                  <%= link_to "Logout", :logout, method: :post %>
-                </a>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </nav>
-    <div>
-      <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
-    </div>
+    <% if flash[:notice].present? %>
+      <div class="notification ">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="notification is-warning">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
     <%= yield %>
     <footer class="footer">
       <div class="content has-text-centered">
