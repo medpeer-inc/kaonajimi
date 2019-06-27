@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_035232) do
     t.bigint "user_tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "user_tag_id"], name: "index_user_taggings_on_user_id_and_user_tag_id", unique: true
     t.index ["user_id"], name: "index_user_taggings_on_user_id"
     t.index ["user_tag_id"], name: "index_user_taggings_on_user_tag_id"
   end
