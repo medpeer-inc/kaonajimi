@@ -91,7 +91,7 @@
     <div class="container">
       <div class="columns is-mobile is-centered">
         <div class="column is-four-fifths">
-          <%= @user.profile_text&.html_safe %>
+          <%= sanitize @user.profile_text.html_safe, scrubber: ::ProfileTextScrubber.new %>
         </div>
       </div>
     </div>
