@@ -2,7 +2,11 @@
   <div class="card">
     <div class="card-image">
       <figure class="image is-4by3">
-        <%= image_tag(url_for user.images.first) %>
+        <% if user.main_image.attached? %>
+          <%= image_tag(url_for user.main_image) %>
+        <% else %>
+          <%= image_tag("https://source.unsplash.com/random/1280x960") %>
+        <% end %>
       </figure>
     </div>
     <div class="card-content">
