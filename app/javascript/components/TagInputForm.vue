@@ -1,18 +1,15 @@
 <template>
   <div class="tags-input-form">
-    <label class="label">タグ</label>
-    <div class="tag-list">
-      <span
-        v-for="(tag, index) in tags"
-        :key="index"
-        class="tag is-primary"
-      >
-        {{ tag.title }}
-        <span
-          class="delete is-small"
-          @click="deleteTag(index)"
-        />
-      </span>
+    <div
+      class="field is-inline-block"
+      v-for="(tag, index) in tags" :key="index"
+    >
+      <div class="control">
+        <div class="tags has-addons">
+          <a class="tag is-link">{{ tag.title }}</a>
+          <a class="tag is-delete" @click="deleteTag(index)"></a>
+        </div>
+      </div>
     </div>
     <input
       v-model="tagTitle"
