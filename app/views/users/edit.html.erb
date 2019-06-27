@@ -1,5 +1,13 @@
-<h1>Editing User</h1>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-third">
+        <h1 class="title is-1">プロフィール編集</h1>
 
-<%= render 'form', user: @user %>
+        <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
+        <%= link_to 'Cancel', @user, class: 'button is-light' %>
+      </div>
+    </div>
+  </div>
+</section>
