@@ -5,10 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(master_group: Master::Group.take, profile_text: '<p>テスト<p>', email: 'hoge@example.com')
 Master::Job.create(name: 'エンジニア')
-Master::Division.create(name: '調剤支援PF_G')
-Master::Group.create(name: 'MIS事業部', division: Master::Division.take)
+Master::Division.create(name: 'MIS事業部')
+Master::Group.create(name: '調剤支援PF_G', division: Master::Division.take)
+User.create(
+  master_group: Master::Group.take,
+  profile_text: '<h1>はじめまして！<h1><p>趣味はサウナです！<p>',
+  email: 'sample@example.com',
+  password: 'Password',
+  password_confirmation: 'Password'
+)
 UserJob.create(user: User.take, master_job: Master::Job.take)
 UserTag.create(title: 'sample', description: 'tag description')
 UserTagging.create(user_tag: UserTag.take, user: User.take)

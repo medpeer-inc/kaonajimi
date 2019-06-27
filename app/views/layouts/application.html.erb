@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <div id="nav">
+      <% if current_user %>
+        <%= link_to "マイページ", user_path(current_user) %>
+        <%= link_to "Logout", :logout, method: :post %>
+      <% end %>
+    </div>
+    <div>
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+    </div>
+
     <%= yield %>
   </body>
 </html>
