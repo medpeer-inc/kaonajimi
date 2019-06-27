@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i(show edit update)
 
   def show
-    @sub_images = @user.sub_images.to_a
-    @tags = @user.user_taggings.map do |taggging|
+    @user_images = @user.images.to_a
+    @tags = @user.user_taggings.map do |tagging|
       # NOTE: 削除するときはtaggingを削除するため、taggingのidを取得
-      { tagging_id: taggging.id, title: taggging.user_tag.title }
+      { id: tagging.user_tag_id, tagging_id: tagging.id, title: tagging.user_tag.title }
     end
   end
 

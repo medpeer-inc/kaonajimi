@@ -13,11 +13,11 @@ class UserTagsController < ApplicationController
 
   def create
     ActiveRecord::Base.transaction do
-      user_tag = UserTag.find_or_create_by!(user_tag_params)
-      @taggging = UserTagging.create!(user_tag: user_tag, user_id: params[:user_id])
-      UserTagHistory.create!(user_tag: user_tag, user_id: params[:user_id], status: :add)
+      @user_tag = UserTag.find_or_create_by!(user_tag_params)
+      @tagging = UserTagging.create!(user_tag: @user_tag, user_id: params[:user_id])
+      UserTagHistory.create!(user_tag: @user_tag, user_id: params[:user_id], status: :add)
     end
-    render :json => { tagging_id: @taggging.id }
+    render :json => { id: @user_tag.id, tagging_id: @tagging.id }
   end
 
   def update
