@@ -15,6 +15,12 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true
 
+  scope :recent, -> { order(updated_at: :desc) }
+  scope :this_month, -> {
+    now = Time.current
+    where(created_at: now.beginning_of_month..now)
+  }
+
   def fullname
     "#{last_name} #{first_name}"
   end

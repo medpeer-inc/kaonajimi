@@ -2,25 +2,11 @@
   <div class="container">
     <div class="box">
       <h2 class="title is-5">最近更新されたユーザー</h2>
-      <div class="columns">
-        <% 5.times do %>
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-5">John Smith</p>
-                  <p class="subtitle is-6"><small>2019/06/27 12:46</small></p>
-                </div>
-              </div>
-            </div>
+      <div class="columns is-multiline">
+        <% @recent_users.each do |user| %>
+          <div class="column is-2">
+            <%= render 'user_card', user: user %>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
@@ -35,7 +21,6 @@
           <h2 class="title is-5">最近更新されたユーザー</h2>
           <div class="columns is-mobile is-centered">
             <div class="column is-half">
-              
             </div>
           </div>
         </div>
@@ -45,13 +30,7 @@
           <h2 class="title is-5">最近更新のあったタグ</h2>
           <table class="table">
             <tbody>
-              <% 5.times do %>
-                <tr>
-                  <td><span class="icon has-text-success"><i class="fas fa-user-tag"></i></span></td>
-                  <td><small>2019/06/27 12:46</small></td>
-                  <td><strong>John Smith</strong>に <a class="tag is-link">CSS</a> タグが付けられました。</td>
-                </tr>
-              <% end %>
+              <%= render partial: 'tag_history_collection', collection: @tags_histories, as: :history %>
             </tbody>
           </table>
         </div>
@@ -64,25 +43,11 @@
   <div class="container">
     <div class="box">
       <h2 class="title is-5">今月入社したユーザー</h2>
-      <div class="columns">
-        <% 5.times do %>
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-5">John Smith</p>
-                  <p class="subtitle is-6"><small>2019/06/27 12:46</small></p>
-                </div>
-              </div>
-            </div>
+      <div class="columns is-multiline">
+        <% @this_month_users.each do |user| %>
+          <div class="column is-2">
+            <%= render 'user_card', user: user %>
           </div>
-        </div>
         <% end %>
       </div>
     </div>
