@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :user_taggings, dependent: :destroy
   has_many :user_tags, through: :user_taggings, dependent: :destroy
 
-  has_many_attached :images
+  has_one_attached :main_image
+  has_many_attached :sub_images
 
   authenticates_with_sorcery!
 
