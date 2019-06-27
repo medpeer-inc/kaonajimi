@@ -1,11 +1,28 @@
-<section class="section">
+<section class="section" id="user">
   <div class="container">
     <div class="columns is-multiline is-centered">
       <div class="column is-three-fifths">
         <h1 class="title is-3">プロフィール編集</h1>
         <hr>
+        <% main_images_attr = [{ url: rails_blob_path(@user.main_image, only_path: true) }] %>
+        <image-upload-form
+          :init_images="<%= main_images_attr.to_json %>"
+          user_id="<%= @user.id %>"
+          limit=1
+          type="main"
+        >
+        </image-upload-form>
+        <% sub_images_attr = @user.sub_images.map { |image| { url: rails_blob_path(image, only_path: true) } } %>
+        <image-upload-form
+          :init_images="<%= sub_images_attr.to_json %>"
+          user_id="<%= @user.id %>"
+          limit=2
+          type="sub"
+        >
+        </image-upload-form>
         <%= render 'form', user: @user %>
       </div>
     </div>
   </div>
 </section>
+<%= javascript_pack_tag 'users/edit' %>
