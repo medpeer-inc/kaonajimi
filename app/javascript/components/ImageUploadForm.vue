@@ -1,7 +1,10 @@
 <template>
   <div class="image-upload-form">
     <div class="image-list">
-      <img :src="image.url" v-for="(image,index) in images" :key="index">
+      <div v-for="(image,index) in images" :key="index">
+        <img :src="image.url">
+        <span class="delete" @click="handleFileDelete(index)" v-if="!isMain()" />
+      </div>
     </div>
     <div class="file has-name" :class="{ 'is-primary': isMain() }" >
       <label class="file-label">
@@ -39,6 +42,11 @@ export default {
       data.append('type', this.type)
       await axios.post('/user_images', data).then(res => {
         this.images = res.data
+      })
+    },
+    handleFileDelete: async function(index) {
+      await axios.delete(`/user_images/${this.images[index].id}`).then(res => {
+        this.images.splice(index, 1)
       })
     }
   }
