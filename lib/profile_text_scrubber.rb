@@ -15,7 +15,7 @@ class ProfileTextScrubber < Rails::Html::PermitScrubber
       html head body title meta div span h1 h2 h3 h4 h5 h6 address p br em strong del ins abbr acronym
       dfn blockquote q cite sup sub pre code var kbd samp bdo font basefont big small b i s strike u tt
       center hr a base link ul ol li dl dt dd dir menu img map area object applet param table caption
-      thead tfoot tbody colgroup col tr td th frameset frame noframes iframe style
+      thead tfoot tbody colgroup col tr td th frameset frame noframes style
     )
   end
 
