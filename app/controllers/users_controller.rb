@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+  include User::AccessLogger
+
   before_action :set_user, only: %i(show edit update)
+  before_action :keep_access_log, only: :show
 
   def index
     word = params[:word]
