@@ -41,7 +41,6 @@ export default {
     handleFileSelect: async function(event) {
       const data = new FormData();
       data.append('images', new Blob(event.target.files))
-      data.append('user_id', this.user_id)
       data.append('type', this.type)
       await axios.post('/user_images', data).then(res => {
         this.images = res.data
