@@ -1,4 +1,6 @@
 class UserImagesController < ApplicationController
+  SUB_IMAGES_MAX_LENGTH = 2
+
   def create
     response = attach_images.map do |image|
       { id: image.id, url: rails_blob_path(image, only_path: true) }
@@ -17,7 +19,8 @@ class UserImagesController < ApplicationController
       current_user.main_image.attach(params[:images])
       [current_user.main_image]
     else
-      current_user.sub_images.attach(params[:images])
+      filled = current_user.sub_images.length >= SUB_IMAGES_MAX_LENGTH
+      current_user.sub_images.attach(params[:images]) unless filled
       current_user.sub_images
     end
   end
