@@ -20,7 +20,7 @@ class UserTagsController < ApplicationController
       tagging.save! if tagging.new_record?
       UserTagHistory.create!(user_tag: user_tag, user_id: params[:user_id], status: :add) if created
     end
-    render :json => { id: user_tag.id, tagging_id: tagging.id, created: created }
+    render json: { id: user_tag.id, tagging_id: tagging.id, created: created }
   end
 
   def update

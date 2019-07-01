@@ -43,14 +43,14 @@ class User < ApplicationRecord
     now = Time.current
     where(created_at: now.beginning_of_month..now)
   }
-  scope :like_search, -> (word) {
+  scope :like_search, ->(word) {
     sql = <<-'SQL'
       first_name LIKE :word OR last_name LIKE :word OR nearest_station LIKE :word
       OR master_jobs.name LIKE :word OR master_groups.name LIKE :word OR master_divisions.name LIKE :word
     SQL
 
     eager_load(:master_jobs, master_group: :division)
-    .where(sql, word: "%#{word}%")
+      .where(sql, word: "%#{word}%")
   }
 
   def fullname

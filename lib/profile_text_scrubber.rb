@@ -30,6 +30,7 @@ class ProfileTextScrubber < Rails::Html::PermitScrubber
   def allowed_iframe?(node)
     return false unless node.name == 'iframe'
     return false if node.attributes['src'].nil?
-    return node.attributes['src'].value.start_with?('https://www.youtube.com/')
+
+    node.attributes['src'].value.start_with?('https://www.youtube.com/')
   end
 end

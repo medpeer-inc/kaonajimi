@@ -49,5 +49,4 @@ class UsersController < ApplicationController
       :password, :password_confirmation, :main_image, sub_images: []
     )
   end
-
 end
