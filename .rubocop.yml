@@ -16,7 +16,7 @@ AllCops:
     - "node_modules/**/*"
     - "db/*schema.rb"
 
-# Hashの書き方はtableを許可したい
+# Hashの書き方はtableを許可
 Layout/AlignHash:
   EnforcedHashRocketStyle:
     - key
@@ -32,12 +32,19 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Max: 140
 
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*.rb" # migrateは長くても許容する
+
 # 日本語のコメントを許可する
 Style/AsciiComments:
   Enabled: false
 
 # namespaceを作ると階層が深くなるのでfalseにする
 Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
   Enabled: false
 
 # lambda は -> にする
@@ -47,9 +54,6 @@ Style/Lambda:
 # --------------------------------------------------------------
 # TODO: 以下、一旦はオフにするもので検討したい
 # --------------------------------------------------------------
-Style/Documentation:
-  Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 
