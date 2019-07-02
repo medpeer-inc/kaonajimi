@@ -4,7 +4,6 @@ module User::AccessLogger
   private
 
   def keep_access_log
-
     User::AccessLog.create(
       requester: current_user,
       responser: @user

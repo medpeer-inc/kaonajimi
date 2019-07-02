@@ -6,12 +6,7 @@ class UsersController < ApplicationController
 
   def index
     word = params[:word]
-    @users = User.like_search(word)
-
-    unless @users.exists?
-      flash.now[:alert] = '条件に該当するユーザーが見つかりませんでした'
-      @users = User.all
-    end
+    @users = users_by_word(word)
   end
 
   def show
@@ -50,4 +45,11 @@ class UsersController < ApplicationController
     )
   end
 
+  def users_by_word(word)
+    users = User.like_search(word).to_a
+    return users if users.present?
+
+    flash.now[:alert] = '条件に該当するユーザーが見つかりませんでした'
+    User.all.to_a
+  end
 end
