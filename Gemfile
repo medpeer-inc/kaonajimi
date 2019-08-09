@@ -47,7 +47,10 @@ group :development do
   gem 'aws-sdk-s3', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rubocop'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
